@@ -1,11 +1,10 @@
 import './App.css';
-import { UseReducer } from './components/UseReducer/UseReducer';
-import { UseState } from './components/UseState/UseState';
+import { ArrayUseState } from './components/Immutable State/ArrayUseState';
 
 function App() {
   return (
     <div className="App">
-      <UseReducer />
+      <ArrayUseState />
     </div>
   );
 }
