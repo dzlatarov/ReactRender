@@ -1,10 +1,10 @@
 import './App.css';
-import { ParentThree } from './components/Incorrect Optimization/ParentThree';
+import { ParentFour } from './components/Incorrect Optimization/ParentFour';
 
 function App() {
   return (
     <div className="App">
-      <ParentThree />
+      <ParentFour />
     </div>
   );
 }
