@@ -1,10 +1,10 @@
 import './App.css';
-import { Post } from './components/Post'
+import SeasonDisplay from './components/ClassBaseComponents/SeasonDisplay';
 
 function App() {
   return (
     <div className="App">
-      <Post />
+      <SeasonDisplay />
     </div>
   );
 }
