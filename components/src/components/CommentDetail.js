@@ -1,19 +1,19 @@
 import React from 'react'
 
-export const CommentDetail = ({ author }) => {
+export const CommentDetail = ({ author, time, comment, imgSrc }) => {
     return (
         <div>
             <div className="comment">
                 <a className="avatar" href="/">
-                    <img alt="avatar" src="https://source.unsplash.com/random" />
+                    <img alt="avatar" src={imgSrc} />
                 </a>
                 <div className="content">
                     <a className="author" href="/">{author}</a>
                     <div className="metadata">
-                        <div className="date">2 days ago</div>
+                        <div className="date">{time}</div>
                     </div>
                     <div className="text">
-                        New post!
+                        {comment}
                     </div>
                 </div>
             </div>
