@@ -5,7 +5,8 @@ class SeasonDisplay extends Component {
         super(props)
 
         this.state = {
-            latitute: 0
+            latitute: 0,
+            errorMessage: ''
         }
     }
 
@@ -14,14 +15,21 @@ class SeasonDisplay extends Component {
             (position) => this.setState({
                 latitute: position.coords.latitude
             }),
-            (err) => console.log(err)
+            (err) => this.setState({
+                errorMessage: err.message
+            })
         )
     }
 
     render() {
         return (
             <div>
-                Latitute: {this.state.latitute}
+                {
+                    this.state.latitute ? `Latitute: ${this.state.latitute}` : `Error: ${this.state.errorMessage}`
+                }
+                {/* Latitute: {this.state.latitute}
+                <br />
+                Error: {this.state.errorMessage} */}
             </div>
         )
     }
