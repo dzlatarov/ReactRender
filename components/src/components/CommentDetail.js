@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const CommentDetail = () => {
+export const CommentDetail = ({ author }) => {
     return (
         <div>
             <div className="comment">
@@ -8,7 +8,7 @@ export const CommentDetail = () => {
                     <img alt="avatar" src="https://source.unsplash.com/random" />
                 </a>
                 <div className="content">
-                    <a className="author" href="/">Danail</a>
+                    <a className="author" href="/">{author}</a>
                     <div className="metadata">
                         <div className="date">2 days ago</div>
                     </div>
