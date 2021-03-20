@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { SeasonDisplay } from './SeasonDisplay'
+import Spinner from './Spinner'
 
 class Index extends Component {
     constructor(props) {
@@ -23,13 +24,15 @@ class Index extends Component {
     }
 
     render() {
-        return (
-            <div>
-                {
-                    this.state.latitute ? <SeasonDisplay lat={this.state.latitute} /> : `Error: ${this.state.errorMessage}`
-                }              
-            </div>
-        )
+        if (this.state.errorMessage && !this.state.latitute) {
+            return <div>Error: {this.state.errorMessage}</div>
+        }
+
+        if (this.state.latitute && !this.state.errorMessage) {
+            return <SeasonDisplay lat={this.state.latitute} />
+        }
+
+        return <Spinner />
     }
 }
 
