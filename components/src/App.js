@@ -1,10 +1,10 @@
 import './App.css';
-import SeasonDisplay from './components/ClassBaseComponents/SeasonDisplay';
+import Index from './components/ClassBaseComponents/Index';
 
 function App() {
   return (
     <div className="App">
-      <SeasonDisplay />
+      <Index />
     </div>
   );
 }
