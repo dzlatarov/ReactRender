@@ -27,10 +27,7 @@ class Index extends Component {
             <div>
                 {
                     this.state.latitute ? <SeasonDisplay lat={this.state.latitute} /> : `Error: ${this.state.errorMessage}`
-                }
-                {/* Latitute: {this.state.latitute}
-                <br />
-                Error: {this.state.errorMessage} */}
+                }              
             </div>
         )
     }
