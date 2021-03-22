@@ -1,10 +1,10 @@
 import './App.css';
-import Index from './components/ClassBaseComponents/Index';
+import SearchBar from './components/HandlingUserInputWithForms/SearchBar';
 
 function App() {
   return (
-    <div className="App">
-      <Index />
+    <div className="App ui container" style={{ marginTop: '10px' }}>
+      <SearchBar />
     </div>
   );
 }
