@@ -4,13 +4,17 @@ import SearchBar from './components/HandlingUserInputWithForms/SearchBar';
 import { CLIENT_ID } from './components/HandlingUserInputWithForms/Config'
 
 class App extends React.Component {
-  onSearchHandler(term) {
-    axios.get('https://api.unsplash.com/search/photos', {
+  state = { images: [] }
+
+  onSearchHandler = async term => {
+    const response = await axios.get('https://api.unsplash.com/search/photos', {
       params: { query: term },
       headers: {
         Authorization: `Client-ID ${CLIENT_ID}`
       }
     })
+
+    this.setState({ images: response.data.results })
   }
 
   render() {
