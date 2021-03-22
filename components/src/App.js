@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import SearchBar from './components/HandlingUserInputWithForms/SearchBar';
 import { CLIENT_ID } from './components/HandlingUserInputWithForms/Config'
+import { ImageList } from './components/HandlingUserInputWithForms/ImageList';
 
 class App extends React.Component {
   state = { images: [] }
@@ -21,6 +22,7 @@ class App extends React.Component {
     return (
       <div className="App ui container" style={{ marginTop: '10px' }}>
         <SearchBar onSubmit={this.onSearchHandler} />
+        <ImageList images={this.state.images} />
       </div>
     );
   }
