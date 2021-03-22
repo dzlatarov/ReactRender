@@ -32,7 +32,7 @@ class Index extends Component {
             return <SeasonDisplay lat={this.state.latitute} />
         }
 
-        return <Spinner />
+        return <Spinner message='Please accept location request' />
     }
 }
 
