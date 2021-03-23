@@ -11,14 +11,21 @@ class App extends Component {
         }
     }
 
-    onSearchHandler = inputValue => {
-        console.log(inputValue);
+    onSearchHandler = async inputValue => {
+        const response = await youtube.get('/search', {
+            params: { q: inputValue }
+        })
+
+        this.setState({
+            videos: response.data.items
+        })
     }
 
     render() {
         return (
             <div className="ui container" style={{ marginTop: '10px' }}>
                 <SearchBar onSubmit={this.onSearchHandler} />
+                I have {this.state.videos.length} videos
             </div>
         )
     }
