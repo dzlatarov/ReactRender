@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import youtube from './api/youtube'
 import SearchBar from './components/SearchBar'
 
 class App extends Component {
@@ -11,10 +11,14 @@ class App extends Component {
         }
     }
 
+    onSearchHandler = inputValue => {
+        console.log(inputValue);
+    }
+
     render() {
         return (
             <div className="ui container" style={{ marginTop: '10px' }}>
-                <SearchBar />
+                <SearchBar onSubmit={this.onSearchHandler} />
             </div>
         )
     }
