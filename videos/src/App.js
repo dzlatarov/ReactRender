@@ -14,13 +14,18 @@ class App extends Component {
         }
     }
 
+    componentDidMount() {
+        this.onSearchHandler('buildings')
+    }
+
     onSearchHandler = async inputValue => {
         const response = await youtube.get('/search', {
             params: { q: inputValue }
         })
 
         this.setState({
-            videos: response.data.items
+            videos: response.data.items,
+            selectedVideo: response.data.items[0]
         })
     }
 
