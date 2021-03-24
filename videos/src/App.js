@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import youtube from './api/youtube'
 import SearchBar from './components/SearchBar'
+import { VideoDetail } from './components/VideoDetail'
 import { VideoList } from './components/VideoList'
 
 class App extends Component {
@@ -8,7 +9,8 @@ class App extends Component {
         super(props)
 
         this.state = {
-            videos: []
+            videos: [],
+            selectedVideo: null
         }
     }
 
@@ -22,11 +24,18 @@ class App extends Component {
         })
     }
 
+    onVideoSelect = video => {
+        this.setState({
+            selectedVideo: video
+        })
+    }
+
     render() {
         return (
             <div className="ui container" style={{ marginTop: '10px' }}>
                 <SearchBar onSubmit={this.onSearchHandler} />
-                <VideoList videos={this.state.videos} />
+                <VideoDetail video={this.state.selectedVideo} />
+                <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
             </div>
         )
     }
