@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from '../../videos/src/App'
+import { App } from './App'
 
 ReactDOM.render(
     <App />,
