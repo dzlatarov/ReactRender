@@ -20,7 +20,9 @@ export const Search = () => {
             setResults(data.query.search)
         }
 
-        search()
+        if (term) {
+            search()
+        }
     }, [term])
 
     const renderedList = results.map((result) => {
@@ -30,7 +32,7 @@ export const Search = () => {
                     <div className="header">
                         {result.title}
                     </div>
-                    {result.snippet}
+                    <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
                 </div>
             </div>
         )
