@@ -5,7 +5,6 @@ export const Search = () => {
     const [term, setTerm] = useState('programming')
     const [results, setResults] = useState([])
 
-    console.log(results);
 
     useEffect(() => {
         const search = async () => {
@@ -24,15 +23,33 @@ export const Search = () => {
         search()
     }, [term])
 
+    const renderedList = results.map((result) => {
+        return (
+            <div key={result.pageid} className="item">
+                <div className="content">
+                    <div className="header">
+                        {result.title}
+                    </div>
+                    {result.snippet}
+                </div>
+            </div>
+        )
+    })
+
     return (
-        <div className="ui form">
-            <div className="field">
-                <label>Enter Search Term</label>
-                <input
-                    type="text"
-                    value={term}
-                    onChange={e => setTerm(e.target.value)}
-                />
+        <div>
+            <div className="ui form">
+                <div className="field">
+                    <label>Enter Search Term</label>
+                    <input
+                        type="text"
+                        value={term}
+                        onChange={e => setTerm(e.target.value)}
+                    />
+                </div>
+            </div>
+            <div className="ui celled list">
+                {renderedList}
             </div>
         </div>
     )
