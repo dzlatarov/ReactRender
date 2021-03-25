@@ -28,6 +28,14 @@ export const Search = () => {
     const renderedList = results.map((result) => {
         return (
             <div key={result.pageid} className="item">
+                <div className="right floated content">
+                    <a
+                        className="ui button"
+                        href={`https://en.wikipedia.org?curid=${result.pageid}`}
+                    >
+                        Go
+                    </a>
+                </div>
                 <div className="content">
                     <div className="header">
                         {result.title}
