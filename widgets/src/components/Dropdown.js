@@ -2,6 +2,10 @@ import React from 'react'
 
 export const Dropdown = ({ options, selected, onSelectedChange }) => {
     const renderedOptions = options.map(option => {
+        if (option.label === selected) {
+            return null
+        }
+        
         return (
             <div
                 key={option.value}
