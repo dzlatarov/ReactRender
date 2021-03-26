@@ -21,7 +21,7 @@ export const Dropdown = ({ label, selected, onSelectedChange, options }) => {
     }, [])
 
     const renderedOptions = options.map(option => {
-        if (option.label === selected) {
+        if (option.value === selected.value) {
             return null
         }
 
@@ -29,7 +29,7 @@ export const Dropdown = ({ label, selected, onSelectedChange, options }) => {
             <div
                 key={option.value}
                 className="item"
-                onClick={() => onSelectedChange(option.label)}
+                onClick={() => onSelectedChange(option)}
             >
                 {option.label}
             </div>
@@ -45,7 +45,7 @@ export const Dropdown = ({ label, selected, onSelectedChange, options }) => {
                 <label className="label">{label}</label>
                 <div onClick={() => setOpen(!open)} className={`ui selection dropdown ${visibleActive}`}>
                     <i className="dropdown icon"></i>
-                    <div className="text">{selected}</div>
+                    <div className="text">{selected.label}</div>
                     <div className={`menu ${visibleTransition}`}>
                         {renderedOptions}
                     </div>
