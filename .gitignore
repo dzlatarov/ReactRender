@@ -1,3 +1,4 @@
 components/src/components/HandlingUserInputWithForms/Config.js
 videos/src/api/config.js
 widgets/src/components/api/Config.js
+videos-hook/src/api/config.js
