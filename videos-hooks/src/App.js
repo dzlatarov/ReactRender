@@ -1,8 +1,12 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import youtube from './api/youtube'
 import SearchBar from './components/SearchBar'
 import { VideoDetail } from './components/VideoDetail'
 import { VideoList } from './components/VideoList'
+
+const App = () => {
+
+}
 
 class App extends Component {
     constructor(props) {
