@@ -9,7 +9,7 @@ export const Header = () => {
             </Link>
             <div className="right menu">
                 <Link to="/" className="item">
-                    Streamers
+                    All Streams
                 </Link>
             </div>
         </div>
