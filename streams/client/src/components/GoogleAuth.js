@@ -17,11 +17,11 @@ class GoogleAuth extends Component {
         })
     }
 
-    onSignIn = () => {
+    onSignInClick = () => {
         this.auth.signIn()
     }
 
-    onSignOut = () => {
+    onSignOutClick = () => {
         this.auth.signOut()
     }
 
@@ -34,14 +34,14 @@ class GoogleAuth extends Component {
             return null
         } else if (this.state.isSignedIn) {
             return (
-                <div onClick={this.onSignOut} className="ui red google button">
+                <div onClick={this.onSignOutClick} className="ui red google button">
                     <i className="google icon" />
                     Sign Out
                 </div>
             )
         } else {
             return (
-                <div onClick={this.onSignIn} className="ui red google button">
+                <div onClick={this.onSignInClick} className="ui red google button">
                     <i className="google icon" />
                     Sign In with Google
                 </div>
