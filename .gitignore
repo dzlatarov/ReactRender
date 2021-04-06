@@ -2,3 +2,5 @@ components/src/components/HandlingUserInputWithForms/Config.js
 videos/src/api/config.js
 widgets/src/components/api/Config.js
 videos-hooks/src/api/config.js
+streams/client/ClientId.js
+streams/client/src/ClientId.js
