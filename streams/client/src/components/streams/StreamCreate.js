@@ -1,14 +1,27 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
+
 const StreamCreate = (props) => {
+    const onTouchRender = ({ error, touched }) => {
+        if (touched && error) {
+            return (
+                <div className="ui error message">
+                    <div className="header">
+                        {error}
+                    </div>
+                </div>
+            )
+        }
+    }
+
     const renderInput = ({ input, label, meta }) => {
         console.log(input);
         return (
             <div className="field">
                 <label>{label}</label>
-                <input {...input} />
-                <span>{input.value ? '' : meta.error}</span>
+                <input {...input} autoComplete="off" />
+                {onTouchRender(meta)}
             </div>
         )
     }
@@ -19,7 +32,7 @@ const StreamCreate = (props) => {
 
     return (
         <form onSubmit={props.handleSubmit(onSubmit)}
-            className="ui form"
+            className="ui form error"
         >
             <Field name="title" component={renderInput} label="Enter Title" />
             <Field name="description" component={renderInput} label="Enter Description" />
