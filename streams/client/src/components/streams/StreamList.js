@@ -2,34 +2,37 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchStreams } from '../../actions'
 
-const StreamList = (props) => {
+const StreamList = ({ streamList, fetchStreams, dispatch }) => {
     useEffect(() => {
-        props.fetchStreams()
-    }, [props])
+        fetchStreams()
+    }, [])
 
-    // const renderStreamList = props.streamList.map(stream => {
-    //     return (
-    //         <div className="item" key={stream.id}>
-    //             <div className="header">
-    //                 {stream.title}
-    //             </div>
-    //             <div className="description">
-    //                 {stream.description}
-    //             </div>
-    //         </div>
-    //     )
-    // })
+    const renderStreamList = streamList.map(stream => {
+        return (
+            <div className="item" key={stream.id}>
+                <i className="large middle aligned icon camera" />
+                <div className="content">
+                    {stream.title}
+                    <div className="description">
+                        {stream.description}
+                    </div>
+                </div>
+            </div>
+        )
+    })
 
     return (
-        <div className="ui container">
-            {/* {renderStreamList} */}
+        <div>
+            <h2>Streams</h2>
+            <div className="ui celled list">
+                {renderStreamList}
+            </div>
         </div>
     )
 }
 
-// const mapStateToProps = (state) => {
-//     console.log(state);
-//     return { streamList: state.streams }
-// }
+const mapStateToProps = (state) => {
+    return { streamList: Object.values(state.streams) }
+}
 
-export default connect(null, { fetchStreams })(StreamList)
+export default connect(mapStateToProps, { fetchStreams })(StreamList)
