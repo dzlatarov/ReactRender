@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form'
 import { createStream } from '../../actions'
 
 
-const StreamCreate = (props) => {
+const StreamCreate = (props) => {   
     const onTouchRender = ({ error, touched }) => {
         if (touched && error) {
             return (
