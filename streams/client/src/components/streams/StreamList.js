@@ -13,7 +13,7 @@ const StreamList = ({ streamList, fetchStreams, currentUserId, isLoggedIn }) => 
         if (stream.userId === currentUserId) {
             return (
                 <div className="right floated content">
-                    <Link to="" className="ui button primary">Edit</Link>
+                    <Link to={`/streams/edit/${stream.id}`} className="ui button primary">Edit</Link>
                     <Link to="" className="ui button negative">Delete</Link>
                 </div>
             )
