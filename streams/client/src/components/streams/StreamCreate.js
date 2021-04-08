@@ -1,11 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import { createStream } from '../../actions'
 
 
-const StreamCreate = (props) => {   
+const StreamCreate = (props) => {
     const onTouchRender = ({ error, touched }) => {
         if (touched && error) {
             return (
@@ -38,7 +37,7 @@ const StreamCreate = (props) => {
         >
             <Field name="title" component={renderInput} label="Enter Title" />
             <Field name="description" component={renderInput} label="Enter Description" />
-            <Link to="/" className="ui button primary">Submit</Link>
+            <button className="ui button primary">Submit</button>
         </form>
     )
 }
