@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchStreams } from '../../actions'
 
-const StreamList = ({ streamList, fetchStreams, currentUserId}) => {
+const StreamList = ({ streamList, fetchStreams, currentUserId, isLoggedIn }) => {
     useEffect(() => {
         fetchStreams()
         //eslint-disable-next-line
@@ -12,8 +13,8 @@ const StreamList = ({ streamList, fetchStreams, currentUserId}) => {
         if (stream.userId === currentUserId) {
             return (
                 <div className="right floated content">
-                    <button className="ui button primary">Edit</button>
-                    <button className="ui button negative">Delete</button>
+                    <Link to="" className="ui button primary">Edit</Link>
+                    <Link to="" className="ui button negative">Delete</Link>
                 </div>
             )
         }
@@ -34,12 +35,23 @@ const StreamList = ({ streamList, fetchStreams, currentUserId}) => {
         )
     })
 
+    const renderCreateButton = () => {
+        if (isLoggedIn) {
+            return (
+                <div style={{ textAlign: "right" }}>
+                    <Link to="/streams/new" className="ui button primary">Create Stream</Link>
+                </div>
+            )
+        }
+    }
+
     return (
         <div>
             <h2>Streams</h2>
             <div className="ui celled list">
                 {renderStreamList}
             </div>
+            {renderCreateButton()}
         </div>
     )
 }
@@ -47,7 +59,8 @@ const StreamList = ({ streamList, fetchStreams, currentUserId}) => {
 const mapStateToProps = (state) => {
     return {
         streamList: Object.values(state.streams),
-        currentUserId: state.auth.userId
+        currentUserId: state.auth.userId,
+        isLoggedIn: state.auth.isSignedIn
     }
 }
 
