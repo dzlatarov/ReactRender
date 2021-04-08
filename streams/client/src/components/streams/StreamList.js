@@ -2,14 +2,27 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchStreams } from '../../actions'
 
-const StreamList = ({ streamList, fetchStreams, dispatch }) => {
+const StreamList = ({ streamList, fetchStreams, currentUserId}) => {
     useEffect(() => {
         fetchStreams()
+        //eslint-disable-next-line
     }, [])
+
+    const renderAdmin = stream => {
+        if (stream.userId === currentUserId) {
+            return (
+                <div className="right floated content">
+                    <button className="ui button primary">Edit</button>
+                    <button className="ui button negative">Delete</button>
+                </div>
+            )
+        }
+    }
 
     const renderStreamList = streamList.map(stream => {
         return (
             <div className="item" key={stream.id}>
+                {renderAdmin(stream)}
                 <i className="large middle aligned icon camera" />
                 <div className="content">
                     {stream.title}
@@ -32,7 +45,10 @@ const StreamList = ({ streamList, fetchStreams, dispatch }) => {
 }
 
 const mapStateToProps = (state) => {
-    return { streamList: Object.values(state.streams) }
+    return {
+        streamList: Object.values(state.streams),
+        currentUserId: state.auth.userId
+    }
 }
 
 export default connect(mapStateToProps, { fetchStreams })(StreamList)
