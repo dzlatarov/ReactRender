@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
+import flv from 'flv.js'
 import { connect } from 'react-redux'
 import { fetchStream } from '../../actions'
 
 const StreamShow = (props) => {
+    const videoRef = useRef()
+
     useEffect(() => {
         props.fetchStream(props.match.params.id)
         // eslint-disable-next-line
@@ -17,6 +20,7 @@ const StreamShow = (props) => {
 
         return (
             <div>
+                <video ref={videoRef} style={{ width: '100%' }} controls/>
                 <h1>{title}</h1>
                 <h5>{description}</h5>
             </div>
