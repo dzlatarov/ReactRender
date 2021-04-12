@@ -7,7 +7,16 @@ const StreamShow = (props) => {
     const videoRef = useRef()
 
     useEffect(() => {
-        props.fetchStream(props.match.params.id)
+        const { id } = props.match.params;
+        props.fetchStream(id);
+
+        const player = flv.createPlayer({
+            type: 'flv',
+            url: `http://localhost:8000/live/${id}`
+        })
+        player.attachMediaElement(videoRef.current);
+        player.load();
+
         // eslint-disable-next-line
     }, [])
 
@@ -20,7 +29,7 @@ const StreamShow = (props) => {
 
         return (
             <div>
-                <video ref={videoRef} style={{ width: '100%' }} controls/>
+                <video ref={videoRef} style={{ width: '100%' }} controls />
                 <h1>{title}</h1>
                 <h5>{description}</h5>
             </div>
