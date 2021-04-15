@@ -10,7 +10,7 @@ export const LanguageStore = (props) => {
     };
 
     return (
-        <Context.Provider value={{ language, onLanguageChanger: onLanguageChanger}}>
+        <Context.Provider value={{ language, onLanguageChanger }}>
             {props.children}
         </Context.Provider>
     );

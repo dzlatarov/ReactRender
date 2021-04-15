@@ -3,14 +3,14 @@ import LanguageContext from '../contexts/LanguageContext'
 import ColorContext from '../contexts/ColorContext'
 
 const Button = () => {
-    const renderButton = value => {
-        return value === 'English' ? 'Submit' : 'Voorleggen';
+    const renderButton = language => {
+        return language === 'English' ? 'Submit' : 'Voorleggen';
     }
 
     const renderColor = color => {
         return <button className={`ui button ${color}`}>
             <LanguageContext.Consumer>
-                {(value) => renderButton(value)}
+                {({ language }) => renderButton(language)}
             </LanguageContext.Consumer>
         </button>
     }
